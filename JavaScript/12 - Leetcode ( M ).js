@@ -4,21 +4,20 @@
  */
 var intToRoman = function (num) {
   let roman = "";
-  const romans = ["M", "D", "C", "L", "X", "V", "I"];
-  const nums = [1000, 500, 100, 50, 10, 5, 1];
+  const romans = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
+  const nums = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
 
   while (num !== 0) {
     for (let i = 0; i < nums.length; i++) {
-      if (num >= nums[i] * 4) {
-        roman += romans[i] + romans[i - 1];
-        num -= nums[i] * 4;
-      } else if (num >= nums[i]) {
+      if (num >= nums[i]) {
         roman += romans[i];
         num -= nums[i];
         break;
       }
     }
   }
+
+  return roman;
 };
 
-intToRoman(14);
+console.log(intToRoman(1994));
